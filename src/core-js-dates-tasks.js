@@ -210,7 +210,10 @@ function getWeekNumberByDate(date) {
   const start = new Date(date.getFullYear(), 0);
   const end = date.getTime();
   let weeks;
-  if (start.getDay() !== 0 && start.getDay() <= date.getDay()) {
+  if (
+    start.getDay() !== 0 &&
+    (date.getDay() === 0 || start.getDay() <= date.getDay())
+  ) {
     weeks = 0;
   } else {
     weeks = 1;
